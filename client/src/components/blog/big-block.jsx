@@ -4,7 +4,7 @@ module.exports = React.createClass({
 	render: function () {
 		return (
 			<div>
-				<h1>123</h1>
+				<h2>一个blog模块</h2>
 			</div>
 		);
 	}

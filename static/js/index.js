@@ -59,6 +59,8 @@
 			}
 	});
 
+	React.render(React.createElement(App, null), document.body);
+
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
@@ -20444,7 +20446,7 @@
 		render: function () {
 			return (
 				React.createElement("div", null, 
-					React.createElement("h1", null, "123")
+					React.createElement("h2", null, "一个blog模块")
 				)
 			);
 		}

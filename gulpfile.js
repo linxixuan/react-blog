@@ -13,8 +13,7 @@ gulp.task('bundle', function(callback) {
 		var config = require(path.resolve('./webpack.config.js'))(false);
 	webpack(config, function (err, stats) {
 		if(err) throw new gutil.PluginError("webpack", err);
-			gutil.log("[webpack]", stats.toString({
-		}));
+			//gutil.log("[webpack]", stats.toString({}));
 		callback();
 	});
 });
@@ -30,7 +29,7 @@ gulp.task('build', ['bundle'], function () {
 /**
  * create server
  */
-gulp.task('server', function () {
+gulp.task('serve', function () {
 	exec('node --harmony server/app.js', function (err, stdout, stderr) {
 		console.log(err);
 		console.log(stdout);
@@ -39,5 +38,5 @@ gulp.task('server', function () {
 });
 
 gulp.task('default', function () {
-	runSequence('build');
+	runSequence(['build', 'serve']);
 });
