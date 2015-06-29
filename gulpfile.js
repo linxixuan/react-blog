@@ -1,5 +1,5 @@
 var path = require('path'),
-	exec = require('child_process').exec;
+	nodemon = require('gulp-nodemon');
 
 var gulp = require('gulp'),
 	runSequence = require('run-sequence'),
@@ -30,10 +30,8 @@ gulp.task('build', ['bundle'], function () {
  * create server
  */
 gulp.task('serve', function () {
-	exec('node --harmony server/app.js', function (err, stdout, stderr) {
-		console.log(err);
-		console.log(stdout);
-		console.log(stderr);
+	nodemon({
+		args: ['--harmony', 'server/app.js'],
 	});
 });
 
