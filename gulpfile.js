@@ -31,7 +31,8 @@ gulp.task('build', ['bundle'], function () {
  */
 gulp.task('serve', function () {
 	nodemon({
-		args: ['--harmony', 'server/app.js'],
+		nodeArgs: ['--harmony'],
+		script: 'server/app.js'
 	});
 });
 
