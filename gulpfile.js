@@ -2,6 +2,7 @@ var path = require('path'),
 	nodemon = require('gulp-nodemon');
 
 var gulp = require('gulp'),
+    watch = require('gulp-watch'),
 	runSequence = require('run-sequence'),
 	gutil = require('gulp-util'),
 	webpack = require('webpack');
@@ -13,9 +14,18 @@ gulp.task('bundle', function(callback) {
 		var config = require(path.resolve('./webpack.config.js'))(false);
 	webpack(config, function (err, stats) {
 		if(err) throw new gutil.PluginError("webpack", err);
-			//gutil.log("[webpack]", stats.toString({}));
+		gutil.log("[webpack]", stats.toString({}));
 		callback();
 	});
+});
+
+/*
+ * auto pack jsx
+ */
+gulp.task('dev', function (callback) {
+    watch('client/**/*.jsx', function() {
+        runSequence('build');
+    });
 });
 
 /**
@@ -37,5 +47,5 @@ gulp.task('serve', function () {
 });
 
 gulp.task('default', function () {
-	runSequence(['build', 'serve']);
+	runSequence(['dev', 'serve']);
 });

@@ -20443,10 +20443,32 @@
 	/** @jsx React.DOM */var React = __webpack_require__(1);
 
 	module.exports = React.createClass({displayName: "module.exports",
+		getInitialState: function () {
+			// 伪造数据
+			return {
+				title: '博客名',
+				link: 'http://baidu.com',
+				summary: '简介简介简介简介简介简介简介简介简介简介简介简介简介简介',
+				content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+				tags: ['测试', '测试试试', 'sss'],
+				date: new Date(),
+			};
+		},
+
 		render: function () {
 			return (
-				React.createElement("div", null, 
-					React.createElement("h2", null, "一个blog模块")
+				React.createElement("div", {className: "blog-block"}, 
+					React.createElement("h2", {className: "blog-block__title"}, React.createElement("a", {href: "{this.state.href}", target: "_blank"}, this.state.title)), 
+					React.createElement("div", {className: "blog-block__content"}, 
+						React.createElement("a", {href: '"' + this.state.href + '"', target: "_blank"}, this.state.content)
+					), 
+					React.createElement("div", {className: "blog-block__extra"}, 
+	                    
+	                        this.state.tags.map(function (item) {
+	                            return React.createElement("a", {href: "http://baidu.com?tags={item}", target: "_blank"}, item);
+	                        })
+	                    
+					)
 				)
 			);
 		}
