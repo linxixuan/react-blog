@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = function (options) {
 	return {
 		entry: {
-			index: "./client/src/components/index.jsx"
+            app: "./client/components/app.jsx"
 		},
 		output: {
 			filename: '[name].js',
