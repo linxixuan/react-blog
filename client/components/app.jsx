@@ -2,7 +2,6 @@ var React = require('react');
 var Router = require('react-router');
 
 var DefaultRoute = Router.DefaultRoute;
-var Link = Router.Link;
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
 
@@ -10,17 +9,13 @@ var Index = require('./pages/index.jsx');
 var History = require('./pages/history.jsx');
 var About = require('./pages/about.jsx');
 
+var Nav = require('./commmon/nav.jsx');
+
 var App = React.createClass({
     render: function () {
         return (
             <div>
-                <header>
-                    <ul>
-                        <li><Link to="index">首页</Link></li>
-                        <li><Link to="history">归档</Link></li>
-                        <li><Link to="about">关于我</Link></li>
-                    </ul>
-                </header>
+                <Nav />
                 <RouteHandler />
             </div>
         );
