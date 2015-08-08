@@ -16,14 +16,14 @@ module.exports = React.createClass({
 	render: function () {
 		return (
 			<div className="blog-block">
-				<h2 className="blog-block__title"><a href="{this.state.href}" target="_blank">{this.state.title}</a></h2>
+				<h2 className="blog-block__title"><a href={'"' + this.state.href +'"'} target="_blank">{this.state.title}</a></h2>
 				<div className="blog-block__content">
 					<a href={'"' + this.state.href + '"'} target="_blank">{this.state.content}</a>
 				</div>
 				<div className="blog-block__extra">
                     {
                         this.state.tags.map(function (item) {
-                            return <a href="http://baidu.com?tags={item}" target="_blank">{item}</a>;
+                            return <a className="tags" href={'"http://baidu.com?tags=' + {item} + '"'} target="_blank">{item}</a>;
                         })
                     }
 				</div>

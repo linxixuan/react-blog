@@ -1,0 +1,22 @@
+.blog-block {
+    margin-bottom:30px;
+    border-bottom:1px solid #333;
+    padding:10px 0px 30px;
+}
+
+.blog-block__title {
+    text-align:center;
+}
+
+.blog-block__content {
+    margin-bottom:20px;
+}
+
+.blog-block__extra {
+    .tags {
+        margin-right:10px;
+        border:1px solid #999;
+        padding:2px 3px;
+        border-radius:2px;
+    }
+}

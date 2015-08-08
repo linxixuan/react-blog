@@ -6,7 +6,7 @@ var Index = React.createClass({
        var s = [1,1,1,1,1,1,1,1,1,];
 
 		return (
-			<div>
+			<div className="container">
                 {s.map(function () {
                     return <BlogBlock />;
                 })}

@@ -23599,7 +23599,7 @@
 	       var s = [1,1,1,1,1,1,1,1,1,];
 
 			return (
-				React.createElement("div", null, 
+				React.createElement("div", {className: "container"}, 
 	                s.map(function () {
 	                    return React.createElement(BlogBlock, null);
 	                })
@@ -23632,14 +23632,14 @@
 		render: function () {
 			return (
 				React.createElement("div", {className: "blog-block"}, 
-					React.createElement("h2", {className: "blog-block__title"}, React.createElement("a", {href: "{this.state.href}", target: "_blank"}, this.state.title)), 
+					React.createElement("h2", {className: "blog-block__title"}, React.createElement("a", {href: '"' + this.state.href +'"', target: "_blank"}, this.state.title)), 
 					React.createElement("div", {className: "blog-block__content"}, 
 						React.createElement("a", {href: '"' + this.state.href + '"', target: "_blank"}, this.state.content)
 					), 
 					React.createElement("div", {className: "blog-block__extra"}, 
 	                    
 	                        this.state.tags.map(function (item) {
-	                            return React.createElement("a", {href: "http://baidu.com?tags={item}", target: "_blank"}, item);
+	                            return React.createElement("a", {className: "tags", href: '"http://baidu.com?tags=' + {item:item} + '"', target: "_blank"}, item);
 	                        })
 	                    
 					)
