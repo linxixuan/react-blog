@@ -3,9 +3,13 @@ var BlogBlock = require('../blog/big-block.jsx');
 
 var Index = React.createClass({
    render: function () {
+       var s = [1,1,1,1,1,1,1,1,1,];
+
 		return (
 			<div>
-                <BlogBlock />
+                {s.map(function () {
+                    return <BlogBlock />;
+                })}
 			</div>
 			);
 		}

@@ -23582,9 +23582,13 @@
 
 	var Index = React.createClass({displayName: "Index",
 	   render: function () {
+	       var s = [1,1,1,1,1,1,1,1,1,];
+
 			return (
 				React.createElement("div", null, 
-	                React.createElement(BlogBlock, null)
+	                s.map(function () {
+	                    return React.createElement(BlogBlock, null);
+	                })
 				)
 				);
 			}
