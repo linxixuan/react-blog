@@ -1,4 +1,5 @@
 var React = require('react');
+var moment = require('moment');
 
 module.exports = React.createClass({
 	getInitialState: function () {
@@ -14,9 +15,11 @@ module.exports = React.createClass({
 	},
 
 	render: function () {
+        var date = moment(this.state.date).format('MMM D YYYY');
+
 		return (
 			<div className="blog-block">
-				<h2 className="blog-block__title"><a href={'"' + this.state.href +'"'} target="_blank">{this.state.title}</a></h2>
+				<h5 className="blog-block__title"><a href={'"' + this.state.href +'"'} target="_blank">{this.state.title}</a></h5>
 				<div className="blog-block__content">
 					<a href={'"' + this.state.href + '"'} target="_blank">{this.state.content}</a>
 				</div>
@@ -27,6 +30,7 @@ module.exports = React.createClass({
                         })
                     }
 				</div>
+                <a className="blog-block__date">{date}</a>
 			</div>
 		);
 	}

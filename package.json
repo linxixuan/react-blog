@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "a blog based on react",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/linxixuan/react-blog.git"
@@ -36,6 +33,7 @@
     "jsx-loader": "^0.13.2",
     "koa": "^0.21.0",
     "koa-static": "^1.4.9",
+    "moment": "^2.10.6",
     "node-sass": "^3.1.2",
     "react": "^0.13.3",
     "react-loader": "^1.4.0",

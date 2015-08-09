@@ -8,6 +8,7 @@ var RouteHandler = Router.RouteHandler;
 var Index = require('./pages/index.jsx');
 var History = require('./pages/history.jsx');
 var About = require('./pages/about.jsx');
+var BlogPage = require('./pages/blog.jsx');
 
 var Nav = require('./commmon/nav.jsx');
 
@@ -27,6 +28,7 @@ var routes = (
         <Route name="index" handler={Index} />
         <Route name="history" handler={History} />
         <Route name="about" handler={About} />
+        <Route name="blog" handler={BlogPage} />
         <DefaultRoute handler={Index}/>
     </Route>
 );

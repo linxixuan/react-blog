@@ -1,11 +1,12 @@
 var React = require('react');
 
 var History = React.createClass({
+    getInititate: function () {
+        return {};
+    },
     render: function () {
         return (
-            <div>
-                <h1>这是归档页</h1>
-            </div>
+            <h4>归档最后做</h4>
         );
     }
 });

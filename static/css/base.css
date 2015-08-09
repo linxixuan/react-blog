@@ -1063,22 +1063,32 @@ there.
   .popover-item:first-child .popover-link:hover:after {
     border-bottom-color: #33C3F0; } }
 
+/* rem 或则使用media query */
+.pg-index {
+  padding-top: 3rem; }
+
 .blog-block {
+  position: relative;
   margin-bottom: 30px;
   border-bottom: 1px solid #333;
-  padding: 10px 0px 30px; }
+  padding: 10px 0px 30px 100px; }
 
 .blog-block__title {
-  text-align: center; }
+  margin-bottom: 1rem; }
 
 .blog-block__content {
-  margin-bottom: 20px; }
+  margin-bottom: 0.5rem; }
 
 .blog-block__extra .tags {
   margin-right: 10px;
   border: 1px solid #999;
   padding: 2px 3px;
   border-radius: 2px; }
+
+.blog-block__date {
+  position: absolute;
+  top: 1rem;
+  left: 0; }
 
 body {
   font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; }
@@ -1087,5 +1097,5 @@ a {
   color: #222;
   text-decoration: none; }
   a:hover {
-    color: #95A5A6;
+    color: #33C3F0;
     transition: color 0.2s ease-in-out; }

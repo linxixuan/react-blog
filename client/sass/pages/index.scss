@@ -1,15 +1,20 @@
+/* rem 或则使用media query */
+.pg-index {
+    padding-top:3rem;
+}
 .blog-block {
+    position:relative;
     margin-bottom:30px;
     border-bottom:1px solid #333;
-    padding:10px 0px 30px;
+    padding:10px 0px 30px 100px;
 }
 
 .blog-block__title {
-    text-align:center;
+    margin-bottom:1rem;
 }
 
 .blog-block__content {
-    margin-bottom:20px;
+    margin-bottom:0.5rem;
 }
 
 .blog-block__extra {
@@ -19,4 +24,10 @@
         padding:2px 3px;
         border-radius:2px;
     }
+}
+
+.blog-block__date {
+    position:absolute;
+    top:1rem;
+    left:0;
 }
