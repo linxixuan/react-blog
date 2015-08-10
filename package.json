@@ -38,6 +38,7 @@
     "react": "^0.13.3",
     "react-loader": "^1.4.0",
     "react-router": "^0.13.3",
+    "reflux": "^0.2.12",
     "run-sequence": "^1.1.0",
     "sass-loader": "^1.0.2",
     "url-loader": "^0.5.6",
