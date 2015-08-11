@@ -1,16 +1,24 @@
+/*
+ * user dependencies
+ */
 var koa = require('koa');
 var static = require('koa-static');
-var fs = require('fs');
-var path = require('path');
-var app = koa();
+var router = require('koa-router')();
+var mongoose = require('mongoose');
 
+var blogController = require('./controllers/blog.js');
+
+mongoose.connect('mongodb://localhost/zmx');
+
+var app = koa();
 // static file
 app.use(static('.'));
 
-app.use(function *(){
-	var indexPath = path.resolve(__dirname, '../static/html/index.html');
-	var content = fs.readFileSync(indexPath).toString();
-	this.body = content;
-});
+router.get('/', require('./controllers/index.js'));
+router.get('/blogs', require('./controllers/blog.js'));
+ 
+app
+  .use(router.routes())
+  .use(router.allowedMethods());
 
-app.listen(3000);
+app.listen(3000) 

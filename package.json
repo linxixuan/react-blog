@@ -32,6 +32,7 @@
     "html-loader": "^0.3.0",
     "jsx-loader": "^0.13.2",
     "koa": "^0.21.0",
+    "koa-router": "^5.1.2",
     "koa-static": "^1.4.9",
     "moment": "^2.10.6",
     "mongoose": "^4.1.2",

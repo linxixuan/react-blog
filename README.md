@@ -8,3 +8,6 @@
 * spa
 * responsive
 * koa & co generator
+
+# todo
+a directory contain differents routers
