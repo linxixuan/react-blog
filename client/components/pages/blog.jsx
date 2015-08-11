@@ -28,7 +28,7 @@ var BlogPage = React.createClass({
                 </div>
                 <div className="blog__info">
                     <a className="time" href="">{this.state.tags.map}</a>
-                    <ul className="tag-list">
+                    <ul className="tag-list clearfix">
                     {
                         this.state.tags.map(function (item) {
                             return (

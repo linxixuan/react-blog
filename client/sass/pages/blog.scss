@@ -1,0 +1,27 @@
+.pg-blog {
+    padding-top:5rem;
+}
+
+.blog__title {
+    text-align:center;
+    font-size:4rem;
+}
+
+.blog__content {
+    margin-bottom:3rem;
+    line-height:1.2rem;
+}
+
+.blog__info {
+    .time {
+        margin-bottom:10px;
+    }
+    .tag-list {
+        list-style:none;
+
+        li {
+            float:left;
+            margin-right:2rem;
+        }
+    }
+}

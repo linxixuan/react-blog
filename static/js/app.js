@@ -35168,7 +35168,7 @@
 	                ), 
 	                React.createElement("div", {className: "blog__info"}, 
 	                    React.createElement("a", {className: "time", href: ""}, this.state.tags.map), 
-	                    React.createElement("ul", {className: "tag-list"}, 
+	                    React.createElement("ul", {className: "tag-list clearfix"}, 
 	                    
 	                        this.state.tags.map(function (item) {
 	                            return (

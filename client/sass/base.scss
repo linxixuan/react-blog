@@ -1,7 +1,6 @@
 @import './skeleton/normalize.scss';
 @import './skeleton/skeleton.scss';
 @import './skeleton/customer.scss';
-@import './pages/index.scss';
 
 body {
     font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -16,3 +15,6 @@ a {
         transition:color .2s ease-in-out;
     }
 }
+
+@import './pages/index.scss';
+@import './pages/blog.scss';
