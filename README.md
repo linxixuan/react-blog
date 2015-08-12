@@ -8,6 +8,6 @@
 * spa
 * responsive
 * koa & co generator
+* and you es6, freze!
 
 # todo
-a directory contain differents routers
