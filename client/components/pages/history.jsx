@@ -1,7 +1,7 @@
 var React = require('react');
 
 var History = React.createClass({
-    getInititate: function () {
+    getInitialState: function () {
         return {};
     },
     render: function () {

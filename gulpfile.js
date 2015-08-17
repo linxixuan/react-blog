@@ -48,7 +48,7 @@ gulp.task('browsersync', function () {
  * auto pack jsx
  */
 gulp.task('dev', function (callback) {
-    watch('client/**/*.jsx', function() {
+    watch('client/**/*.js*', function() {
         runSequence('build', browsersync.reload);
     });
 

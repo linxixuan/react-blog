@@ -5,14 +5,14 @@ var moment = require('moment');
  * 获取querystring请求内容
  */
 var BlogPage = React.createClass({
-	getInitialState: function () {
-		// 伪造数据
-		return {
-			title: '博客名',
-			content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-			tags: ['测试', '测试试试', 'sss'],
-			date: new Date(),
-		};
+    getInitialState: function () {
+        // 伪造数据
+        return {
+            title: '博客名',
+            content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+            tags: ['测试', '测试试试', 'sss'],
+            date: new Date(),
+        };
     },
 
     render: function () {
