@@ -11,3 +11,4 @@
 * and you es6, freze!
 
 # todo
+http://react.nodejs-china.org/t/flux/615

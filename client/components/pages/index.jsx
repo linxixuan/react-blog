@@ -25,7 +25,7 @@ var Index = React.createClass({
     render: function () {
         return (
             <div className="pg-index container">
-                {this.blogList.map(function () {
+                {this.state.blogList.map(function () {
                     return <BlogBlock />;
                 })}
             </div>

@@ -23601,7 +23601,7 @@
 	    render: function () {
 	        return (
 	            React.createElement("div", {className: "pg-index container"}, 
-	                this.blogList.map(function () {
+	                this.state.blogList.map(function () {
 	                    return React.createElement(BlogBlock, null);
 	                })
 	            )
@@ -36740,14 +36740,15 @@
 	var Reflux = __webpack_require__(286);
 	var blogAction = __webpack_require__(307);
 
+	// 发异步请求
+	blogAction();
+
 	var blogStore = Reflux.createStore({
 	    init: function () {
 	        this.listenTo(blogAction, this.ouput);
 	    },
 
 	    output: function (blogs) {
-	        console.log('get list');
-
 	        this.trigger(blogs);
 	    }
 
@@ -36760,13 +36761,12 @@
 	var Reflux = __webpack_require__(286);
 	var request = __webpack_require__(308);
 
-	var blogAction = Reflux.createActions({
-	    "load": {children: ["completed","failed"]}
+	var Actions = Reflux.createActions({
+	    "blog": {children: ["completed","failed"]}
 	});
 
-	blogAction.load.listen(function () {
+	Actions.blog.listen(function () {
 	    var that = this;
-
 	    request
 	    .get('/blogs')
 	    .end(function (err, res) {
@@ -36781,7 +36781,7 @@
 	    });
 	});
 
-	module.exports = blogAction;
+	module.exports = Actions.blog;
 
 
 /***/ },
