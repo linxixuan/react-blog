@@ -1,10 +1,20 @@
 var mongoose = require('mongoose');
 var Blog = require('../models/blog');
+var Router = require('koa-router');
 
 Blog = mongoose.model('Blog');
 
-var blogController = function *(next) {
-     yield this.body = Blog.find().exec();
+var blogControllers = {
+    list: function *(next) {
+        yield this.body = Blog.find({order: 'desc'}).exec();
+    },
+
+    blog: function *(next) {
+        var bid = this.params.bid; // router passes
+        yield this.body = Blog.find({
+            bid: bid
+        }).exec();
+    }
 };
 
-module.exports = blogController;
+module.exports = blogControllers;
