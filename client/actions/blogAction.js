@@ -1,12 +1,13 @@
 var Reflux = require('reflux');
 var request = require('superagent');
 
-var Actions = Reflux.createActions({
-    "blog": {children: ["completed","failed"]}
+var BlogAction = Reflux.createActions({
+    "list": {children: ["completed","failed"]}
 });
 
-Actions.blog.listen(function () {
+BlogAction.list.listen(function (data) {
     var that = this;
+
     request
     .get('/blogs')
     .end(function (err, res) {
@@ -21,4 +22,4 @@ Actions.blog.listen(function () {
     });
 });
 
-module.exports = Actions.blog;
+module.exports = BlogAction;

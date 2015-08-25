@@ -1,16 +1,14 @@
 var Reflux = require('reflux');
-var blogAction = require('../actions/blogAction');
+var BlogAction = require('../actions/blogAction');
 
-// 发异步请求
-blogAction();
+var BlogStore = Reflux.createStore({
+    listenables: BlogAction,
 
-var blogStore = Reflux.createStore({
-    init: function () {
-        this.listenTo(blogAction, this.ouput);
+    onListCompleted: function (payload) {
+        this.trigger(payload);
     },
 
-    output: function (blogs) {
-        this.trigger(blogs);
-    }
-
+    onListFailed: function (payload) {
+        this.trigger(payload);
+    },
 });
