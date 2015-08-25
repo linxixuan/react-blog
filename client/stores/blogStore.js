@@ -1,14 +1,19 @@
 var Reflux = require('reflux');
-var BlogAction = require('../actions/blogAction');
+var BlogActions = require('../actions/blogAction');
+var request = require('superagent');
 
 var BlogStore = Reflux.createStore({
-    listenables: BlogAction,
+    listenables: [BlogActions],
+    onGetList: function () {
+        var that = this;
+        var blogList;
 
-    onListCompleted: function (payload) {
-        this.trigger(payload);
-    },
-
-    onListFailed: function (payload) {
-        this.trigger(payload);
+        request.get('/blogs')
+        .end(function (err, res) {
+            blogList = res.body.emitted.fulfill[0];
+            that.trigger(blogList);
+        });
     },
 });
+
+module.exports = BlogStore;
