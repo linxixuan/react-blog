@@ -11,4 +11,6 @@
 * and you es6, freze!
 
 # todo
-http://react.nodejs-china.org/t/flux/615
+[x] http://react.nodejs-china.org/t/flux/615
+[ ] cache & comment react component & loading
+
