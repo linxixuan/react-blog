@@ -24,7 +24,7 @@ var BlogStore = Reflux.createStore({
 
         request.get('/blog/' + data.bname)
         .end(function (err, res) {
-            blog = res.body.emitted.fulfill[0];
+            blog = res.body.emitted.fulfill[0][0];
             that.trigger(blog);
         });
     }

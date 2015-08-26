@@ -6,7 +6,7 @@ Blog = mongoose.model('Blog');
 
 var blogControllers = {
     list: function *(next) {
-        yield this.body = Blog.find({order: 'desc'}).exec();
+        yield this.body = Blog.find().exec();
     },
 
     blog: function *(next) {

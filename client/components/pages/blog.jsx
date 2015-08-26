@@ -6,6 +6,8 @@ var moment = require('moment');
 var BlogStore = require('../../stores/blogStore');
 var BlogAction = require('../../actions/blogAction');
 
+var moment = require('moment');
+
 /*
  * 获取querystring请求内容
  */
@@ -29,23 +31,24 @@ var BlogPage = React.createClass({
     },
 
     render: function () {
-        console.log(this.state);
+        var blog = this.state.blog;
+        var date = moment(blog.date).format('MMM D YYYY');
 
         return (
             <div className="container pg-blog blog">
                 <h1 className="blog__title">
-                    {this.state.title}
+                    {blog.title}
                 </h1>
                 <div className="blog__content"
                     dangerouslySetInnerHTML={{
-                        __html: this.state.content
+                        __html: blog.content
                     }}>
                 </div>
                 <div className="blog__info">
-                    <a className="time" href="">{this.state.tags.map}</a>
+                    <a className="time" href="">{date}</a>
                     <ul className="tag-list clearfix">
                     {
-                        this.state.tags.map(function (item) {
+                        blog.tags.map(function (item) {
                             return (
                             <li>
                                 <a className="tag" href={'"http://baidu.com?tags=' + {item} + '"'} target="_blank">{item}</a>

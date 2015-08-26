@@ -25265,7 +25265,7 @@
 
 	        request.get('/blog/' + data.bname)
 	        .end(function (err, res) {
-	            blog = res.body.emitted.fulfill[0];
+	            blog = res.body.emitted.fulfill[0][0];
 	            that.trigger(blog);
 	        });
 	    }
@@ -38187,6 +38187,8 @@
 	var BlogStore = __webpack_require__(217);
 	var BlogAction = __webpack_require__(218);
 
+	var moment = __webpack_require__(223);
+
 	/*
 	 * 获取querystring请求内容
 	 */
@@ -38210,23 +38212,24 @@
 	    },
 
 	    render: function () {
-	        console.log(this.state);
+	        var blog = this.state.blog;
+	        var date = moment(blog.date).format('MMM D YYYY');
 
 	        return (
 	            React.createElement("div", {className: "container pg-blog blog"}, 
 	                React.createElement("h1", {className: "blog__title"}, 
-	                    this.state.title
+	                    blog.title
 	                ), 
 	                React.createElement("div", {className: "blog__content", 
 	                    dangerouslySetInnerHTML: {
-	                        __html: this.state.content
+	                        __html: blog.content
 	                    }}
 	                ), 
 	                React.createElement("div", {className: "blog__info"}, 
-	                    React.createElement("a", {className: "time", href: ""}, this.state.tags.map), 
+	                    React.createElement("a", {className: "time", href: ""}, date), 
 	                    React.createElement("ul", {className: "tag-list clearfix"}, 
 	                    
-	                        this.state.tags.map(function (item) {
+	                        blog.tags.map(function (item) {
 	                            return (
 	                            React.createElement("li", null, 
 	                                React.createElement("a", {className: "tag", href: '"http://baidu.com?tags=' + {item:item} + '"', target: "_blank"}, item)
