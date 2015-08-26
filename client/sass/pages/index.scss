@@ -1,5 +1,13 @@
 /* rem 或则使用media query */
 .pg-index {
+    a {
+        color:#222;
+        &:hover {
+            color:#E67E22;
+            transition:color .2s ease-in-out;
+        }
+    }
+
     padding-top:3rem;
 
     .blog-block {

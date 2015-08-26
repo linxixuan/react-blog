@@ -1,14 +1,14 @@
 var React = require('react');
 var Router = require('react-router');
 var Reflux = require('reflux');
+var Link = Router.Link;
+
 var moment = require('moment');
 var marked = require('marked');
 var hljs = require('highlight.js');
 
 var BlogStore = require('../../stores/blogStore');
 var BlogAction = require('../../actions/blogAction');
-
-var moment = require('moment');
 
 var highlight = function(code, lang){
     var o;
@@ -84,13 +84,13 @@ var BlogPage = React.createClass({
                     }}>
                 </div>
                 <div className="blog__info">
-                    <a className="time" href="">{date}</a>
+                    <Link to="history" className="time" query={{date: date}}>{date}</Link>
                     <ul className="tag-list clearfix">
                     {
                         blog.tags.map(function (item) {
                             return (
                             <li>
-                                <a className="tag" href={'"http://baidu.com?tags=' + {item} + '"'} target="_blank">{item}</a>
+                                <Link className="tag" to="history" query={{tag: item}}>{item}</Link>
                             </li>
                             );
                         })

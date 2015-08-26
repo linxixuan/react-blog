@@ -1,132 +1,110 @@
 /*
-
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
+Style with support for rainbow parens
 */
 
 pre {
-    background:antiquewhite;
-}
-pre code {
   display: block;
+  overflow-x: auto;
   padding: 0.5em;
-  max-height:400px;
+  background: #474949;
+  color: #d1d9e1;
+  -webkit-text-size-adjust: none;
 }
 
-pre .hljs-comment,
-pre .hljs-template_comment,
-pre .hljs-diff .hljs-header,
-pre .hljs-javadoc {
-  color: #998;
-  font-style: italic
+pre > code {
+    border:none;
+    background:transparent;
 }
 
-pre .hljs-keyword,
-pre .hljs-css .hljs-rule .hljs-keyword,
-pre .hljs-winutils,
-pre .hljs-javascript .hljs-title,
-pre .hljs-nginx .hljs-title,
-pre .hljs-subst,
-pre .hljs-request,
-pre .hljs-status {
-  color: #333;
-  font-weight: bold
+.hljs-body,
+.hljs-collection {
+   color: #d1d9e1;
 }
 
-pre .hljs-number,
-pre .hljs-hexcolor,
-pre .hljs-ruby .hljs-constant {
-  color: #099;
+.hljs-comment,
+.diff .hljs-header,
+.hljs-doctype,
+.lisp .hljs-string,
+.hljs-javadoc {
+  color: #969896;
+  font-style: italic;
 }
 
-pre .hljs-string,
-pre .hljs-tag .hljs-value,
-pre .hljs-phpdoc,
-pre .hljs-tex .hljs-formula {
-  color: #d14
+.hljs-keyword,
+.clojure .hljs-attribute,
+.hljs-winutils,
+.javascript .hljs-title,
+.hljs-addition,
+.css .hljs-tag {
+  color: #cc99cc;
 }
 
-pre .hljs-title,
-pre .hljs-id,
-pre .hljs-coffeescript .hljs-params,
-pre .hljs-scss .hljs-preprocessor {
-  color: #900;
-  font-weight: bold
+.hljs-number { color: #f99157; }
+
+.hljs-command,
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.tex .hljs-formula,
+.hljs-regexp,
+.hljs-hexcolor {
+  color: #8abeb7;
 }
 
-pre .hljs-javascript .hljs-title,
-pre .hljs-lisp .hljs-title,
-pre .hljs-clojure .hljs-title,
-pre .hljs-subst {
-  font-weight: normal
+.hljs-title,
+.hljs-localvars,
+.hljs-function .hljs-title,
+.hljs-chunk,
+.hljs-decorator,
+.hljs-built_in,
+.hljs-identifier {
+  color: #b5bd68;
 }
 
-pre .hljs-class .hljs-title,
-pre .hljs-haskell .hljs-type,
-pre .hljs-vhdl .hljs-literal,
-pre .hljs-tex .hljs-command {
-  color: #458;
-  font-weight: bold
+.hljs-class .hljs-keyword {
+  color: #f2777a;
 }
 
-pre .hljs-tag,
-pre .hljs-tag .hljs-title,
-pre .hljs-rules .hljs-property,
-pre .hljs-django .hljs-tag .hljs-keyword {
-  color: #000080;
-  font-weight: normal
+.hljs-variable,
+.smalltalk .hljs-number,
+.hljs-constant,
+.hljs-class .hljs-title,
+.hljs-parent,
+.haskell .hljs-label,
+.hljs-id {
+   color: #ffcc66;
 }
 
-pre .hljs-attribute,
-pre .hljs-variable,
-pre .hljs-lisp .hljs-body {
-  color: #008080
+.hljs-tag .hljs-title,
+.hljs-rules .hljs-property,
+.django .hljs-tag .hljs-keyword {
+  font-weight: bold;
 }
 
-pre .hljs-regexp {
-  color: #009926
+.hljs-attribute {
+  color: #81a2be;
 }
 
-pre .hljs-class {
-  color: #458;
-  font-weight: bold
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-shebang,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.diff .hljs-change,
+.hljs-special,
+.hljs-attr_selector,
+.hljs-important,
+.hljs-subst,
+.hljs-cdata {
+  color: #f99157;
 }
 
-pre .hljs-symbol,
-pre .hljs-ruby .hljs-symbol .hljs-string,
-pre .hljs-lisp .hljs-keyword,
-pre .hljs-tex .hljs-special,
-pre .hljs-prompt {
-  color: #990073
+.hljs-deletion {
+  color: #dc322f;
 }
 
-pre .hljs-built_in,
-pre .hljs-lisp .hljs-title,
-pre .hljs-clojure .hljs-built_in {
-  color: #0086b3
-}
-
-pre .hljs-preprocessor,
-pre .hljs-pi,
-pre .hljs-doctype,
-pre .hljs-shebang,
-pre .hljs-cdata {
-  color: #999;
-  font-weight: bold
-}
-
-pre .hljs-deletion {
-  background: #fdd
-}
-
-pre .hljs-addition {
-  background: #dfd
-}
-
-pre .hljs-diff .hljs-change {
-  background: #0086b3
-}
-
-pre .hljs-chunk {
-  color: #aaa
+.tex .hljs-formula {
+  background: #eee8d5;
 }

@@ -38182,14 +38182,14 @@
 	/** @jsx React.DOM */var React = __webpack_require__(1);
 	var Router = __webpack_require__(157);
 	var Reflux = __webpack_require__(197);
+	var Link = Router.Link;
+
 	var moment = __webpack_require__(223);
 	var marked = __webpack_require__(314);
 	var hljs = __webpack_require__(315);
 
 	var BlogStore = __webpack_require__(217);
 	var BlogAction = __webpack_require__(218);
-
-	var moment = __webpack_require__(223);
 
 	var highlight = function(code, lang){
 	    var o;
@@ -38265,13 +38265,13 @@
 	                    }}
 	                ), 
 	                React.createElement("div", {className: "blog__info"}, 
-	                    React.createElement("a", {className: "time", href: ""}, date), 
+	                    React.createElement(Link, {to: "history", className: "time", query: {date: date}}, date), 
 	                    React.createElement("ul", {className: "tag-list clearfix"}, 
 	                    
 	                        blog.tags.map(function (item) {
 	                            return (
 	                            React.createElement("li", null, 
-	                                React.createElement("a", {className: "tag", href: '"http://baidu.com?tags=' + {item:item} + '"', target: "_blank"}, item)
+	                                React.createElement(Link, {className: "tag", to: "history", query: {tag: item}}, item)
 	                            )
 	                            );
 	                        })

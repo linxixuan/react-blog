@@ -4,15 +4,17 @@
 @import './hl.scss';
 
 body {
-    font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,sans-serif;
+    color:#666;
 }
 
 a {
     color:#222;
     text-decoration:none;
+    color:#E67E22;
 
     &:hover {
-        color:#33C3F0;
+        color:#D35400;
         transition:color .2s ease-in-out;
     }
 }
