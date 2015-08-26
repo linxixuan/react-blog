@@ -2,11 +2,50 @@ var React = require('react');
 var Router = require('react-router');
 var Reflux = require('reflux');
 var moment = require('moment');
+var marked = require('marked');
+var hljs = require('highlight.js');
 
 var BlogStore = require('../../stores/blogStore');
 var BlogAction = require('../../actions/blogAction');
 
 var moment = require('moment');
+
+var highlight = function(code, lang){
+    var o;
+
+    if(lang == 'js') {
+        lang = 'javascript';
+    } else if (lang == 'html') {
+        lang = 'xml';
+    }
+    if(lang){
+        o = hljs.highlight(lang, code);
+    } else {
+        o = hljs.highlightAuto(code).value;
+    }
+
+    if(o){
+        if (o.value) {
+            return o.value;
+        } else {
+            return o;
+        }
+    } else {
+        return code;
+    }
+};
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false,
+    highlight: highlight
+});;
 
 /*
  * 获取querystring请求内容
@@ -18,9 +57,9 @@ var BlogPage = React.createClass({
         // 伪造数据
         return {
             blog: {
-                title: '博客名',
-                content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
-                tags: ['测试', '测试试试', 'sss'],
+                title: '',
+                content: '',
+                tags: [],
                 date: new Date(),
             }
         };
@@ -41,7 +80,7 @@ var BlogPage = React.createClass({
                 </h1>
                 <div className="blog__content"
                     dangerouslySetInnerHTML={{
-                        __html: blog.content
+                        __html: marked(blog.content, {sanitize: true})
                     }}>
                 </div>
                 <div className="blog__info">
