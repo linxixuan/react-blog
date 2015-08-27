@@ -38191,6 +38191,8 @@
 	var BlogStore = __webpack_require__(217);
 	var BlogAction = __webpack_require__(218);
 
+	var Disqus = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../common/disqus.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 	var highlight = function(code, lang){
 	    var o;
 
@@ -38277,7 +38279,8 @@
 	                        })
 	                    
 	                    )
-	                )
+	                ), 
+	                React.createElement(Disqus, null)
 	            )
 	        );
 

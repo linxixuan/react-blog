@@ -10,6 +10,8 @@ var hljs = require('highlight.js');
 var BlogStore = require('../../stores/blogStore');
 var BlogAction = require('../../actions/blogAction');
 
+var Disqus = require('../common/disqus.jsx');
+
 var highlight = function(code, lang){
     var o;
 
@@ -97,6 +99,7 @@ var BlogPage = React.createClass({
                     }
                     </ul>
                 </div>
+                <Disqus/>
             </div>
         );
 
