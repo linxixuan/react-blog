@@ -1,5 +1,6 @@
 var React = require('react');
 var Router = require('react-router');
+var Loader = require('react-loader');
 var Reflux = require('reflux');
 var Link = Router.Link;
 
@@ -9,10 +10,9 @@ var hljs = require('highlight.js');
 
 var BlogStore = require('../../stores/blogStore');
 var BlogAction = require('../../actions/blogAction');
+var Disqus = require('react-disqus-thread');
 
-var Disqus = require('../common/disqus.jsx');
-
-var highlight = function(code, lang){
+var highlight = function(code, lang) {
     var o;
 
     if(lang == 'js') {
@@ -74,32 +74,37 @@ var BlogPage = React.createClass({
     render: function () {
         var blog = this.state.blog;
         var date = moment(blog.date).format('MMM D YYYY');
+        var loaded = blog.content !== '';
 
         return (
             <div className="container pg-blog blog">
-                <h1 className="blog__title">
-                    {blog.title}
-                </h1>
-                <div className="blog__content"
-                    dangerouslySetInnerHTML={{
-                        __html: marked(blog.content, {sanitize: true})
-                    }}>
-                </div>
-                <div className="blog__info">
-                    <Link to="history" className="time" query={{date: date}}>{date}</Link>
-                    <ul className="tag-list clearfix">
-                    {
-                        blog.tags.map(function (item) {
-                            return (
-                            <li>
-                                <Link className="tag" to="history" query={{tag: item}}>{item}</Link>
-                            </li>
-                            );
-                        })
-                    }
-                    </ul>
-                </div>
-                <Disqus/>
+                <Loader loaded={loaded}>
+                    <h1 className="blog__title">
+                        {blog.title}
+                    </h1>
+                    <div className="blog__content"
+                        dangerouslySetInnerHTML={{
+                            __html: marked(blog.content, {sanitize: true})
+                        }}>
+                    </div>
+                    <div className="blog__info">
+                        <Link to="history" className="time" query={{date: date}}>{date}</Link>
+                        <ul className="tag-list clearfix">
+                        {
+                            blog.tags.map(function (item) {
+                                return (
+                                <li>
+                                    <Link className="tag" to="history" query={{tag: item}}>{item}</Link>
+                                </li>
+                                );
+                            })
+                        }
+                        </ul>
+                    </div>
+                    <Disqus
+                        shortname="linxixuan"
+                        title="林夕轩"/>
+                </Loader>
             </div>
         );
 

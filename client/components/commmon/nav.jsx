@@ -12,6 +12,7 @@ var Nav = React.createClass({
                         <li className="navbar-item"><Link className="navbar-link" to="history">归档</Link></li>
                         <li className="navbar-item"><Link className="navbar-link" to="about">关于我</Link></li>
                     </ul>
+                    <i className="avatar"></i>
                 </div>
             </nav>
         );

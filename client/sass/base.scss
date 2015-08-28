@@ -2,22 +2,6 @@
 @import './skeleton/skeleton.scss';
 @import './skeleton/customer.scss';
 @import './hl.scss';
-
-body {
-    font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,sans-serif;
-    color:#666;
-}
-
-a {
-    color:#222;
-    text-decoration:none;
-    color:#E67E22;
-
-    &:hover {
-        color:#D35400;
-        transition:color .2s ease-in-out;
-    }
-}
-
+@import './common.scss';
 @import './pages/index.scss';
 @import './pages/blog.scss';

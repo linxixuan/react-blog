@@ -1160,6 +1160,54 @@ pre > code {
 .tex .hljs-formula {
   background: #eee8d5; }
 
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+
+  Mixins available:
+    -   css3-prefix             - arguments: Property, Value
+    -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-horizontal   - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-radial       - arguments: Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%
+    -   background-size         - arguments: Width: 100%, Height: 100%
+    -   background-opacity      - arguments: Color: #000, Opacity: .85
+    -   border-radius           - arguments: Radius: 5px
+    -   border-radius-separate  - arguments: Top Left: 5px, Top Right: 5px, Bottom Left: 5px, Bottom Right: 5px
+    -   box                     - arguments: Orientation: horizontal, Pack: center, Align: center
+    -   box-rgba                - arguments: R: 60, G: 3, B: 12, Opacity: 0.23, Color: #3C3C3C
+    -   box-shadow              - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   box-sizing              - arguments: Type: border-box
+    -   columns                 - arguments: Count: 3, Gap: 10
+    -   double-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Radius: 0
+    -   flex                    - arguments: Value: 1
+    -   flip                    - arguments: ScaleX: -1
+    -   font-face               - arguments: Font Family: myFont, Eot File Src: myFont.eot, Woff File Src: myFont.woff, Ttf File Src: myFont.ttf
+    -   opacity                 - arguments: Opacity: 0.5
+    -   outline radius          - arguments: Radius: 5px
+    -   resize                  - arguments: Direction: both
+    -   rotate                  - arguments: Degree: 0, M11: 0, M12: 0, M21: 0, M22: 0
+    CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
+    -   text-shadow             - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   transform               - arguments: Parameters: null
+    -   transform-style         - arguments: Style: preserve-3d
+    -   transition              - Default arguments: What: all, Length: 1s, Easing: ease-in-out
+    -                            - Examples: @include transition (all 2s ease-in-out);
+    -                                        @include transition (opacity 1s ease-in 2s, width 2s ease-out);
+    -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
+    -   keyframes               - arguments: Animation name
+                                - content:   Animation css
+    -   animation               - arguments: name duration timing-function delay iteration-count direction fill-mode play-state
+                                             (http://www.w3schools.com/cssref/css3_pr_animation.asp)
+
+------------------------------------------------------------- */
 body {
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,sans-serif;
   color: #666; }
@@ -1171,6 +1219,78 @@ a {
   a:hover {
     color: #D35400;
     transition: color 0.2s ease-in-out; }
+
+.navbar {
+  position: relative; }
+  .navbar .avatar {
+    position: absolute;
+    top: 3rem;
+    right: 100%;
+    border: .5rem solid #FFF;
+    border-radius: 50%;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    background: url("/static/image/avatar.png") no-repeat center;
+    background-size: 6rem auto;
+    box-shadow: 0 0 0.5rem 0 #333;
+    opacity: 0;
+    -webkit-animation: roll 3s 1s cubic-bezier(0.14, 0.49, 0.29, 0.9) forwards;
+    -khtml-animation: roll 3s 1s cubic-bezier(0.14, 0.49, 0.29, 0.9) forwards;
+    -moz-animation: roll 3s 1s cubic-bezier(0.14, 0.49, 0.29, 0.9) forwards;
+    -ms-animation: roll 3s 1s cubic-bezier(0.14, 0.49, 0.29, 0.9) forwards;
+    -o-animation: roll 3s 1s cubic-bezier(0.14, 0.49, 0.29, 0.9) forwards;
+    animation: roll 3s 1s cubic-bezier(0.14, 0.49, 0.29, 0.9) forwards; }
+
+@-webkit-keyframes roll {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg);
+    right: 100%; }
+  100% {
+    right: 0;
+    transform: rotate(1440deg);
+    opacity: 1; } }
+
+@-moz-keyframes roll {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg);
+    right: 100%; }
+  100% {
+    right: 0;
+    transform: rotate(1440deg);
+    opacity: 1; } }
+
+@-ms-keyframes roll {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg);
+    right: 100%; }
+  100% {
+    right: 0;
+    transform: rotate(1440deg);
+    opacity: 1; } }
+
+@-o-keyframes roll {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg);
+    right: 100%; }
+  100% {
+    right: 0;
+    transform: rotate(1440deg);
+    opacity: 1; } }
+
+@keyframes roll {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg);
+    right: 100%; }
+  100% {
+    right: 0;
+    transform: rotate(1440deg);
+    opacity: 1; } }
 
 /* rem 或则使用media query */
 .pg-index {
@@ -1203,7 +1323,8 @@ a {
 
 .pg-blog {
   padding-top: 3rem;
-  padding-bottom: 8rem; }
+  padding-bottom: 8rem;
+  min-height: 80rem; }
   .pg-blog p {
     margin-bottom: 1rem;
     line-height: 2.4rem; }

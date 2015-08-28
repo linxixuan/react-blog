@@ -1,0 +1,51 @@
+@import './lib/base.scss';
+
+body {
+    font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,sans-serif;
+    color:#666;
+}
+
+a {
+    color:#222;
+    text-decoration:none;
+    color:#E67E22;
+
+    &:hover {
+        color:#D35400;
+        transition:color .2s ease-in-out;
+    }
+}
+
+.navbar {
+    position:relative;
+
+    .avatar {
+        position:absolute;
+        top:3rem;
+        right:100%;
+        border:.5rem solid #FFF;
+        border-radius:50%;
+        padding:.5rem;
+        width:5rem;
+        height:5rem;
+        background:url('/static/image/avatar.png') no-repeat center;
+        background-size:6rem auto;
+        box-shadow:0 0 .5rem 0 #333;
+        opacity:0;
+        @include animation(roll 3s 1s cubic-bezier(0.14, 0.49, 0.29, 0.9) forwards);
+    }
+}
+
+@include keyframes(roll) {
+    0% {
+        opacity:0;
+        transform:rotate(-360deg);
+        right:100%
+    }
+
+    100% {
+        right:0;
+        transform:rotate(1440deg);
+        opacity:1;
+    }
+}
