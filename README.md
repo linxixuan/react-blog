@@ -12,5 +12,5 @@
 
 # todo
 [x] http://react.nodejs-china.org/t/flux/615
-[ ] cache & comment react component & loading
+[x] cache & comment react component & loading
 
