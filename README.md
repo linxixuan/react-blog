@@ -13,4 +13,4 @@
 # todo
 [x] http://react.nodejs-china.org/t/flux/615
 [x] cache & comment react component & loading
-
+[ ] next pre blog, history
