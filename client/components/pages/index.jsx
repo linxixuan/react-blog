@@ -3,7 +3,6 @@ var Reflux = require('reflux');
 
 var BlogStore = require('../../stores/blogStore');
 var BlogAction = require('../../actions/blogAction');
-
 var BlogBlock = require('../blog/big-block.jsx');
 
 var Index = React.createClass({
