@@ -1,23 +1,33 @@
 var React = require('react');
+var Reflux = require('reflux');
 
+var BlogStore = require('../../stores/blogStore');
+var BlogAction = require('../../actions/blogAction');
 var historyBlog = require('../blog/history-block.jsx');
 
 var MonthBlock = React.createClass({
+    mixins: [Reflux.connect(BlogStore, 'blogList')],
+
     getInitialState: function() {
         return {
-            time: '2015-06'
+            time: '2015-06',
+            blogList:[]
         };
+    },
+
+    componentDidMount: function() {
+        BlogAction.getList();
     },
 
     render: function() {
         return (
-            <div class="month">
-                <div class="month__header">
+            <div className="month">
+                <div className="month__header">
                     {this.state.time}
                 </div>
-                <div class="month__bloglist">
+                <div className="month__bloglist">
                     {
-                        this.state.bloglist.map(function(t, i) {
+                        this.state.blogList.map(function(t, i) {
                             <historyBlog key={i} blog={t} />
                         })
                     }
@@ -35,7 +45,9 @@ var History = React.createClass({
 
     render: function () {
         return (
-            <div></div>
+            <div>
+                <MonthBlock />
+            </div>
         );
     }
 });

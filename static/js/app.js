@@ -38140,25 +38140,35 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(1);
+	var Reflux = __webpack_require__(197);
 
+	var BlogStore = __webpack_require__(217);
+	var BlogAction = __webpack_require__(218);
 	var historyBlog = __webpack_require__(312);
 
 	var MonthBlock = React.createClass({displayName: "MonthBlock",
+	    mixins: [Reflux.connect(BlogStore, 'blogList')],
+
 	    getInitialState: function() {
 	        return {
-	            time: '2015-06'
+	            time: '2015-06',
+	            blogList:[]
 	        };
+	    },
+
+	    componentDidMount: function() {
+	        BlogAction.getList();
 	    },
 
 	    render: function() {
 	        return (
-	            React.createElement("div", {class: "month"}, 
-	                React.createElement("div", {class: "month__header"}, 
+	            React.createElement("div", {className: "month"}, 
+	                React.createElement("div", {className: "month__header"}, 
 	                    this.state.time
 	                ), 
-	                React.createElement("div", {class: "month__bloglist"}, 
+	                React.createElement("div", {className: "month__bloglist"}, 
 	                    
-	                        this.state.bloglist.map(function(t, i) {
+	                        this.state.blogList.map(function(t, i) {
 	                            React.createElement("historyBlog", {key: i, blog: t})
 	                        })
 	                    
@@ -38176,7 +38186,9 @@
 
 	    render: function () {
 	        return (
-	            React.createElement("div", null)
+	            React.createElement("div", null, 
+	                React.createElement(MonthBlock, null)
+	            )
 	        );
 	    }
 	});
@@ -38191,6 +38203,29 @@
 	/** @jsx React.DOM */var React = __webpack_require__(1);
 
 	var historyBlock = React.createClass({displayName: "historyBlock",
+	    getInitialState: function () {
+	        var blog = this.props.blog;
+	        console.log(blog);
+	        // 伪造数据
+	        return {
+	            title: blog.title,
+	            link: blog.bid,
+	            date: blog.date
+	        };
+	    },
+
+	    render: function () {
+	        var date = moment(this.state.date).format('MMM D YYYY');
+
+	        return (
+	            React.createElement("div", {className: "blog-block"}, 
+	                React.createElement("h5", {className: "blog-block__title"}, 
+	                    React.createElement(Link, {to: "blog", query: {bname: this.state.link}}, this.state.title)
+	                ), 
+	                React.createElement(Link, {to: "history", query: {date: this.state.date}, className: "blog-block__date"}, date)
+	            )
+	        );
+	    }
 	});
 
 	module.exports = historyBlock;
