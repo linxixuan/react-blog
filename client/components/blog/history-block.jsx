@@ -1,9 +1,11 @@
 var React = require('react');
+var moment = require('moment');
+var Router = require('react-router');
+var Link = Router.Link;
 
-var historyBlock = React.createClass({
+module.exports = React.createClass({
     getInitialState: function () {
         var blog = this.props.blog;
-        console.log(blog);
         // 伪造数据
         return {
             title: blog.title,
@@ -14,9 +16,8 @@ var historyBlock = React.createClass({
 
     render: function () {
         var date = moment(this.state.date).format('MMM D YYYY');
-
         return (
-            <div className="blog-block">
+            <div className="blog-block cf">
                 <h5 className="blog-block__title">
                     <Link to="blog" query={{bname: this.state.link}}>{this.state.title}</Link>
                 </h5>
@@ -25,5 +26,3 @@ var historyBlock = React.createClass({
         );
     }
 });
-
-module.exports = historyBlock;

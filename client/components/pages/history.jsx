@@ -3,14 +3,14 @@ var Reflux = require('reflux');
 
 var BlogStore = require('../../stores/blogStore');
 var BlogAction = require('../../actions/blogAction');
-var historyBlog = require('../blog/history-block.jsx');
+var HistoryBlog = require('../blog/history-block.jsx');
 
 var MonthBlock = React.createClass({
     mixins: [Reflux.connect(BlogStore, 'blogList')],
 
     getInitialState: function() {
         return {
-            time: '2015-06',
+            time: '2015',
             blogList:[]
         };
     },
@@ -28,7 +28,7 @@ var MonthBlock = React.createClass({
                 <div className="month__bloglist">
                     {
                         this.state.blogList.map(function(t, i) {
-                            <historyBlog key={i} blog={t} />
+                            return <HistoryBlog key={i} blog={t} />;
                         })
                     }
                 </div>
@@ -44,8 +44,9 @@ var History = React.createClass({
     },
 
     render: function () {
+        // foreach months
         return (
-            <div>
+            <div className="container pg-history">
                 <MonthBlock />
             </div>
         );

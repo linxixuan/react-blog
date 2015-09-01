@@ -13,4 +13,8 @@
 # todo
 [x] http://react.nodejs-china.org/t/flux/615
 [x] cache & comment react component & loading
+[ ] search all time group by time
 [ ] next pre blog, history
+
+# commnents
+* customer react component's name first letter must be upcase

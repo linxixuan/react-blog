@@ -58,6 +58,14 @@ a {
     color: #D35400;
     transition: color 0.2s ease-in-out; }
 
+.cf:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
 .navbar {
   position: relative; }
   .navbar .avatar {

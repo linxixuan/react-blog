@@ -1220,6 +1220,14 @@ a {
     color: #D35400;
     transition: color 0.2s ease-in-out; }
 
+.cf:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
 .navbar {
   position: relative; }
   .navbar .avatar {
@@ -1382,3 +1390,28 @@ a {
     .blog__info .tag-list li:hover {
       color: #666;
       transition: color 0.2s ease-in; }
+
+.pg-history {
+  padding-top: 3rem;
+  padding-bottom: 8rem;
+  min-height: 80rem; }
+  .pg-history .month__header {
+    font-size: 3rem;
+    background-color: red;
+    display: inline-block;
+    padding: 0 1rem;
+    color: #fff; }
+    .pg-history .month__header:before {
+      content: ''; }
+  .pg-history .blog-block {
+    position: relative;
+    border-bottom: 1px solid #DCDCDC;
+    padding: 2rem 8rem 1rem 0; }
+  .pg-history .blog-block__title {
+    float: left;
+    margin-bottom: 0;
+    font-size: 2rem; }
+  .pg-history .blog-block__date {
+    position: absolute;
+    bottom: 1rem;
+    right: 0; }

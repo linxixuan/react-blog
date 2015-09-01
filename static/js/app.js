@@ -38144,14 +38144,14 @@
 
 	var BlogStore = __webpack_require__(217);
 	var BlogAction = __webpack_require__(218);
-	var historyBlog = __webpack_require__(312);
+	var HistoryBlog = __webpack_require__(312);
 
 	var MonthBlock = React.createClass({displayName: "MonthBlock",
 	    mixins: [Reflux.connect(BlogStore, 'blogList')],
 
 	    getInitialState: function() {
 	        return {
-	            time: '2015-06',
+	            time: '2015',
 	            blogList:[]
 	        };
 	    },
@@ -38169,7 +38169,7 @@
 	                React.createElement("div", {className: "month__bloglist"}, 
 	                    
 	                        this.state.blogList.map(function(t, i) {
-	                            React.createElement("historyBlog", {key: i, blog: t})
+	                            return React.createElement(HistoryBlog, {key: i, blog: t});
 	                        })
 	                    
 	                )
@@ -38185,8 +38185,9 @@
 	    },
 
 	    render: function () {
+	        // foreach months
 	        return (
-	            React.createElement("div", null, 
+	            React.createElement("div", {className: "container pg-history"}, 
 	                React.createElement(MonthBlock, null)
 	            )
 	        );
@@ -38201,11 +38202,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/** @jsx React.DOM */var React = __webpack_require__(1);
+	var moment = __webpack_require__(223);
+	var Router = __webpack_require__(157);
+	var Link = Router.Link;
 
-	var historyBlock = React.createClass({displayName: "historyBlock",
+	module.exports = React.createClass({displayName: "module.exports",
 	    getInitialState: function () {
 	        var blog = this.props.blog;
-	        console.log(blog);
 	        // 伪造数据
 	        return {
 	            title: blog.title,
@@ -38216,9 +38219,8 @@
 
 	    render: function () {
 	        var date = moment(this.state.date).format('MMM D YYYY');
-
 	        return (
-	            React.createElement("div", {className: "blog-block"}, 
+	            React.createElement("div", {className: "blog-block cf"}, 
 	                React.createElement("h5", {className: "blog-block__title"}, 
 	                    React.createElement(Link, {to: "blog", query: {bname: this.state.link}}, this.state.title)
 	                ), 
@@ -38227,8 +38229,6 @@
 	        );
 	    }
 	});
-
-	module.exports = historyBlock;
 
 
 /***/ },
