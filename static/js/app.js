@@ -25247,6 +25247,8 @@
 	 */
 	var BlogStore = Reflux.createStore({
 	    listenables: [BlogActions],
+
+	    // all blog list
 	    onGetList: function () {
 	        var that = this;
 	        var blogList;
@@ -25258,6 +25260,7 @@
 	        });
 	    },
 
+	    // single blog
 	    onGetBlog: function (data) {
 	        var that = this;
 	        var blog;
@@ -25266,6 +25269,22 @@
 	        .end(function (err, res) {
 	            blog = res.body.emitted.fulfill[0][0];
 	            that.trigger(blog);
+	        });
+	    }, 
+
+	    // bloglist group by month
+	    onGetMonthsBlogs: function (data) {
+	        var that = this;
+	        var months;
+
+	        // a new api for temporarily use
+	        request.get('/months')
+	        .end(function (err, res) {
+	            months = res.body;
+
+	            console.log(months);
+
+	            that.trigger(months);
 	        });
 	    }
 	});
@@ -25280,7 +25299,8 @@
 
 	var BlogActions = Reflux.createActions([
 	    "getList",
-	    "getBlog"
+	    "getBlog",
+	    "getMonthsBlogs"
 	]);
 
 	module.exports = BlogActions;
@@ -38147,34 +38167,50 @@
 	var HistoryBlog = __webpack_require__(312);
 
 	var MonthBlock = React.createClass({displayName: "MonthBlock",
-	    mixins: [Reflux.connect(BlogStore, 'blogList')],
+	    mixins: [Reflux.connect(BlogStore, 'monthList')],
 
 	    getInitialState: function() {
 	        return {
-	            time: '2015',
-	            blogList:[]
+	            monthList: []
 	        };
 	    },
 
 	    componentDidMount: function() {
-	        BlogAction.getList();
+	        BlogAction.getMonthsBlogs();
 	    },
 
 	    render: function() {
-	        return (
-	            React.createElement("div", {className: "month"}, 
-	                React.createElement("div", {className: "month__header"}, 
-	                    this.state.time
-	                ), 
-	                React.createElement("div", {className: "month__bloglist"}, 
-	                    
-	                        this.state.blogList.map(function(t, i) {
-	                            return React.createElement(HistoryBlog, {key: i, blog: t});
-	                        })
-	                    
-	                )
+	        var blogList;
+	        if (this.state.monthList.length > 0) {
+	            return (
+	            React.createElement("div", {className: "wrapper"}, 
+	                
+	                    this.state.monthList.map(function (month, index) {
+	                        blogList = month.blogs.emitted.fulfill[0];
+
+	                        if (blogList.length > 0) {
+	                            return (
+	                                React.createElement("div", {className: "month", key: index}, 
+	                                    React.createElement("div", {className: "month__header"}, 
+	                                        month.name
+	                                    ), 
+	                                    React.createElement("div", {className: "month__bloglist"}, 
+	                                        
+	                                            blogList.map(function(t, i) {
+	                                                return React.createElement(HistoryBlog, {key: i, blog: t});
+	                                            })
+	                                        
+	                                    )
+	                                )
+	                            );
+	                        }
+	                    })
+	                
 	            )
-	        );
+	            );
+	        } else {
+	            return (React.createElement("div", {className: "wrapper"}));
+	        }
 	    }
 	});
 
@@ -38209,22 +38245,30 @@
 	module.exports = React.createClass({displayName: "module.exports",
 	    getInitialState: function () {
 	        var blog = this.props.blog;
-	        // 伪造数据
+
 	        return {
 	            title: blog.title,
 	            link: blog.bid,
+	            tags: blog.tags,
 	            date: blog.date
 	        };
 	    },
 
 	    render: function () {
-	        var date = moment(this.state.date).format('MMM D YYYY');
+	        var date = moment(this.state.date).format('YYYY-MM-D');
 	        return (
 	            React.createElement("div", {className: "blog-block cf"}, 
 	                React.createElement("h5", {className: "blog-block__title"}, 
 	                    React.createElement(Link, {to: "blog", query: {bname: this.state.link}}, this.state.title)
 	                ), 
-	                React.createElement(Link, {to: "history", query: {date: this.state.date}, className: "blog-block__date"}, date)
+	                React.createElement(Link, {to: "history", query: {date: date}, className: "blog-block__date"}, date), 
+	                React.createElement("div", {className: "blog-block__tags cf"}, 
+	                    
+	                        this.state.tags.map(function (item, index) {
+	                            return React.createElement(Link, {to: "history", key: index, className: "tag", query: {tag: item}}, item);
+	                        })
+	                    
+	                )
 	            )
 	        );
 	    }

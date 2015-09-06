@@ -3,33 +3,67 @@
     padding-bottom:8rem;
     min-height:80rem;
 
-    .month__header {
-        font-size: 3rem;
-        background-color: red;
-        display: inline-block;
-        padding: 0 1rem;
-        color: #fff;
+    .month {
+        margin-bottom:5rem;
+    }
 
-        &:before {
-            content: '';
+    .month__header {
+        font-size:3rem;
+        background-color:#E74C3C;
+        display:inline-block;
+        padding:0 1rem;
+        height:4rem;
+        line-height:4rem;
+        color:#fff;
+
+        &:after {
+            content:'';
         }
     }
 
     .blog-block {
         position:relative;
         border-bottom:1px solid #DCDCDC;
-        padding:2rem 8rem 1rem 0;
+        padding:2rem 8rem 3rem 0;
     }
 
     .blog-block__title {
         float:left;
         margin-bottom:0;
         font-size:2rem;
+
+        a {
+            color:#2C3E50;
+            &:hover {
+                color:#E74C3C;
+            }
+        }
     }
 
     .blog-block__date {
         position:absolute;
-        bottom:1rem;
+        bottom:3rem;
         right:0;
+        color:#95A5A6;
+
+        &:hover {
+            color:#2C3E50;
+        }
+    }
+
+    .blog-block__tags {
+        position:absolute;
+        bottom:1rem;
+
+        .tag {
+            float:left;
+            margin-right:1rem;
+            font-size:1.4rem;
+            color:#95A5A6;
+
+            &:hover {
+                color:#2C3E50;
+            }
+        }
     }
 }

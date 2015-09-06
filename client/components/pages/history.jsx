@@ -6,34 +6,50 @@ var BlogAction = require('../../actions/blogAction');
 var HistoryBlog = require('../blog/history-block.jsx');
 
 var MonthBlock = React.createClass({
-    mixins: [Reflux.connect(BlogStore, 'blogList')],
+    mixins: [Reflux.connect(BlogStore, 'monthList')],
 
     getInitialState: function() {
         return {
-            time: '2015',
-            blogList:[]
+            monthList: []
         };
     },
 
     componentDidMount: function() {
-        BlogAction.getList();
+        BlogAction.getMonthsBlogs();
     },
 
     render: function() {
-        return (
-            <div className="month">
-                <div className="month__header">
-                    {this.state.time}
-                </div>
-                <div className="month__bloglist">
-                    {
-                        this.state.blogList.map(function(t, i) {
-                            return <HistoryBlog key={i} blog={t} />;
-                        })
-                    }
-                </div>
+        var blogList;
+        if (this.state.monthList.length > 0) {
+            return (
+            <div className="wrapper">
+                {
+                    this.state.monthList.map(function (month, index) {
+                        blogList = month.blogs.emitted.fulfill[0];
+
+                        if (blogList.length > 0) {
+                            return (
+                                <div className="month" key={index}>
+                                    <div className="month__header">
+                                        {month.name}
+                                    </div>
+                                    <div className="month__bloglist">
+                                        {
+                                            blogList.map(function(t, i) {
+                                                return <HistoryBlog key={i} blog={t} />;
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            );
+                        }
+                    })
+                }
             </div>
-        );
+            );
+        } else {
+            return (<div className="wrapper"></div>);
+        }
     }
 });
 

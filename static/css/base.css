@@ -1395,23 +1395,44 @@ a {
   padding-top: 3rem;
   padding-bottom: 8rem;
   min-height: 80rem; }
+  .pg-history .month {
+    margin-bottom: 5rem; }
   .pg-history .month__header {
     font-size: 3rem;
-    background-color: red;
+    background-color: #E74C3C;
     display: inline-block;
     padding: 0 1rem;
+    height: 4rem;
+    line-height: 4rem;
     color: #fff; }
-    .pg-history .month__header:before {
+    .pg-history .month__header:after {
       content: ''; }
   .pg-history .blog-block {
     position: relative;
     border-bottom: 1px solid #DCDCDC;
-    padding: 2rem 8rem 1rem 0; }
+    padding: 2rem 8rem 3rem 0; }
   .pg-history .blog-block__title {
     float: left;
     margin-bottom: 0;
     font-size: 2rem; }
+    .pg-history .blog-block__title a {
+      color: #2C3E50; }
+      .pg-history .blog-block__title a:hover {
+        color: #E74C3C; }
   .pg-history .blog-block__date {
     position: absolute;
-    bottom: 1rem;
-    right: 0; }
+    bottom: 3rem;
+    right: 0;
+    color: #95A5A6; }
+    .pg-history .blog-block__date:hover {
+      color: #2C3E50; }
+  .pg-history .blog-block__tags {
+    position: absolute;
+    bottom: 1rem; }
+    .pg-history .blog-block__tags .tag {
+      float: left;
+      margin-right: 1rem;
+      font-size: 1.4rem;
+      color: #95A5A6; }
+      .pg-history .blog-block__tags .tag:hover {
+        color: #2C3E50; }

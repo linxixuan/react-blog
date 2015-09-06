@@ -2,7 +2,8 @@ var Reflux = require('reflux');
 
 var BlogActions = Reflux.createActions([
     "getList",
-    "getBlog"
+    "getBlog",
+    "getMonthsBlogs"
 ]);
 
 module.exports = BlogActions;

@@ -7,6 +7,8 @@ var request = require('superagent');
  */
 var BlogStore = Reflux.createStore({
     listenables: [BlogActions],
+
+    // all blog list
     onGetList: function () {
         var that = this;
         var blogList;
@@ -18,6 +20,7 @@ var BlogStore = Reflux.createStore({
         });
     },
 
+    // single blog
     onGetBlog: function (data) {
         var that = this;
         var blog;
@@ -26,6 +29,22 @@ var BlogStore = Reflux.createStore({
         .end(function (err, res) {
             blog = res.body.emitted.fulfill[0][0];
             that.trigger(blog);
+        });
+    }, 
+
+    // bloglist group by month
+    onGetMonthsBlogs: function (data) {
+        var that = this;
+        var months;
+
+        // a new api for temporarily use
+        request.get('/months')
+        .end(function (err, res) {
+            months = res.body;
+
+            console.log(months);
+
+            that.trigger(months);
         });
     }
 });
