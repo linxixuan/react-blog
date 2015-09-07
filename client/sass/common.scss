@@ -6,14 +6,20 @@ body {
 }
 
 a {
-    color:#222;
+    color:#2C3E50;
     text-decoration:none;
-    color:#E67E22;
 
     &:hover {
-        color:#D35400;
+        color:#E74C3C;
         transition:color .2s ease-in-out;
     }
+}
+
+.navbar-link {
+    color:#2C3E50;
+}
+.navbar-link.active {
+    color:#E74C3C;
 }
 
 .cf {

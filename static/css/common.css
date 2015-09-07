@@ -51,12 +51,17 @@ body {
   color: #666; }
 
 a {
-  color: #222;
-  text-decoration: none;
-  color: #E67E22; }
+  color: #2C3E50;
+  text-decoration: none; }
   a:hover {
-    color: #D35400;
+    color: #E74C3C;
     transition: color 0.2s ease-in-out; }
+
+.navbar-link {
+  color: #2C3E50; }
+
+.navbar-link.active {
+  color: #E74C3C; }
 
 .cf:after {
   content: '';

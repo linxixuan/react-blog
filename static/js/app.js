@@ -53,7 +53,7 @@
 
 	var Index = __webpack_require__(196);
 	var History = __webpack_require__(311);
-	var About = __webpack_require__(313);
+	var About = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./pages/about.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	var BlogPage = __webpack_require__(314);
 
 	var Nav = __webpack_require__(452);
@@ -38274,25 +38274,7 @@
 
 
 /***/ },
-/* 313 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/** @jsx React.DOM */var React = __webpack_require__(1);
-
-	var About = React.createClass({displayName: "About",
-	    render: function () {
-	        return (
-	            React.createElement("div", null, 
-	                React.createElement("h1", null, "这是关于页")
-	            )
-	        );
-	    }
-	});
-
-	module.exports = About;
-
-
-/***/ },
+/* 313 */,
 /* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
