@@ -8,16 +8,21 @@
     }
 
     .month__header {
-        font-size:3rem;
-        background-color:#E74C3C;
-        display:inline-block;
+        position:relative;
         padding:0 1rem;
+        width:10rem;
         height:4rem;
         line-height:4rem;
+        font-size:3rem;
         color:#fff;
+        background-color:#E74C3C;
 
         &:after {
             content:'';
+            border:2rem dashed transparent;
+            border-left:2rem solid #E74C3C;
+            position:absolute;
+            right:-4rem;
         }
     }
 

@@ -25282,8 +25282,6 @@
 	        .end(function (err, res) {
 	            months = res.body;
 
-	            console.log(months);
-
 	            that.trigger(months);
 	        });
 	    }
