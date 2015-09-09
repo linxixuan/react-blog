@@ -12,8 +12,11 @@
 
 # todo
 [x] http://react.nodejs-china.org/t/flux/615
+
 [x] cache & comment react component & loading
+
 [x] search all time group by time
+
 [ ] next pre blog, history
 
 # commnents
