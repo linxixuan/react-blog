@@ -19,5 +19,7 @@
 
 [ ] next pre blog, history
 
+[ ] compress js css
+
 # commnents
 * customer react component's name first letter must be upcase
