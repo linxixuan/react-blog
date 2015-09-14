@@ -53,7 +53,7 @@
 
 	var Index = __webpack_require__(196);
 	var History = __webpack_require__(311);
-	var About = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./pages/about.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var About = __webpack_require__(313);
 	var BlogPage = __webpack_require__(314);
 
 	var Nav = __webpack_require__(452);
@@ -38274,7 +38274,82 @@
 
 
 /***/ },
-/* 313 */,
+/* 313 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/** @jsx React.DOM */var React = __webpack_require__(1);
+
+	var Basic = React.createClass({displayName: "Basic",
+	    render: function() {
+	        return (
+	            React.createElement("div", {className: "block block--basic"}, 
+	                React.createElement("h2", null, "基本信息"), 
+	                React.createElement("p", null, "本名张梦轩，89年生，双鱼座，出生于江西某个小县城的农场。是最后一批童年里没有电脑的80后。从小看漫画、笑话故事，长于插科打诨，爱好写段子，以逗乐大家为己任。"), 
+	                React.createElement("p", null, "研究生毕业于浙大软件工程专业，2012年4月开始把编码作为常态，因实习部门技术框架切换转而接触前端。"), 
+	                React.createElement("p", null, "宅居动物，爱好音乐，漫画，游戏，电影。"), 
+	                React.createElement("p", null, "目前在有赞从事前端工作，经常接触的有PHP、SASS、NodeJS、Backbone。正在学习react、gulp、webpack、koa。")
+	            )
+	        );
+	    }
+	});
+
+	var Contact = React.createClass({displayName: "Contact",
+	    render: function() {
+	        return (
+	            React.createElement("dl", {className: "block block--contact"}, 
+	                React.createElement("h2", null, "联系方式"), 
+	                React.createElement("dt", null, "邮箱："), 
+	                React.createElement("dd", null, 
+	                    React.createElement("a", {href: "mailto:zmx.morgan@gmail.com"}, "zmx.morgan@gmail.com")
+	                ), 
+	                React.createElement("dt", null, "微博："), 
+	                React.createElement("dd", null, 
+	                    React.createElement("a", {href: "http://weibo.com/yuanjingdi", target: "_blank"}, "weibo.com/yuanjingdi")
+	                ), 
+	                React.createElement("dt", null, "github:"), 
+	                React.createElement("dd", null, 
+	                    React.createElement("a", {href: "http://github.com/linxixuan", target: "_blank"}, "github.com/linxixuan")
+	                ), 
+	                React.createElement("dt", null, "segmentfault"), 
+	                React.createElement("dd", null, 
+	                    React.createElement("a", {href: "http://segmentfault.com/u/linxixuan", target: "_blank"}, "segmentfault.com/u/linxixuan")
+	                )
+	            )
+	        );
+	    }
+	});
+
+	var Project = React.createClass({displayName: "Project",
+	    render: function() {
+	        return (
+	            React.createElement("dl", {className: "block block--project"}, 
+	                React.createElement("h2", null, "小项目："), 
+	                React.createElement("dt", null, "我的豆瓣"), 
+	                React.createElement("dd", null, "专为长篇技术文档设计：针对一个url添加阅读锚点方便下次阅读；夜间模式，使用solarized dark配色，减少阅读文档时眼睛的不适感。"), 
+	                React.createElement("dt", null, "个人信息记录"), 
+	                React.createElement("dd", null, "使用微信公共账号接收信息并保存，通过页面展现统计信息。示例：", React.createElement("a", {href: "/track"}, "http:zmx.im/track"))
+	            )
+	        );
+	    }
+	});
+
+	var About = React.createClass({displayName: "About",
+	    render: function () {
+	        return (
+	            React.createElement("div", {className: "pg-about"}, 
+	                React.createElement(Basic, null), 
+	                React.createElement(Project, null), 
+	                React.createElement(Contact, null), 
+	                React.createElement("iframe", {src: "http://mars.nasa.gov/participate/send-your-name/orion-first-flight/?action=getcert&e=1&cn=957469", width: "750", height: "307", scrolling: "no", frameBorder: "0"})
+	            )
+	        );
+	    }
+	});
+
+	module.exports = About;
+
+
+/***/ },
 /* 314 */
 /***/ function(module, exports, __webpack_require__) {
 

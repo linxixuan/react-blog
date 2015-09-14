@@ -23,7 +23,7 @@ var Contact = React.createClass({
                 <dd>
                     <a href="mailto:zmx.morgan@gmail.com">zmx.morgan@gmail.com</a>
                 </dd>
-                <dt>微博：<dt>
+                <dt>微博：</dt>
                 <dd>
                     <a href="http://weibo.com/yuanjingdi" target="_blank">weibo.com/yuanjingdi</a>
                 </dd>
@@ -57,9 +57,10 @@ var Project = React.createClass({
 var About = React.createClass({
     render: function () {
         return (
-            <div className="pg-history">
+            <div className="pg-about">
                 <Basic />
                 <Project />
+                <Contact />
                 <iframe src="http://mars.nasa.gov/participate/send-your-name/orion-first-flight/?action=getcert&e=1&cn=957469" width="750" height="307" scrolling="no" frameBorder="0"></iframe>
             </div>
         );

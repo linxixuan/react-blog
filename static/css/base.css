@@ -1447,3 +1447,10 @@ a {
       color: #95A5A6; }
       .pg-history .blog-block__tags .tag:hover {
         color: #2C3E50; }
+
+.pg-about {
+  margin: 0 auto;
+  padding-top: 50px;
+  width: 800px; }
+  .pg-about a {
+    color: #8e44ad; }
