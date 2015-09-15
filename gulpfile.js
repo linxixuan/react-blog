@@ -6,7 +6,10 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     sass = require('gulp-sass'),
     gutil = require('gulp-util'),
+    minifyCss = require('gulp-minify-css');
     uglify = require('gulp-uglify'),
+    hash = require('gulp-hash'),
+    rename = require('gulp-rename'),
     browsersync = require('browser-sync').create(),
     webpack = require('webpack');
 
@@ -80,15 +83,24 @@ gulp.task('serve', function () {
  * compress js
  */
 gulp.task('jscompress', function() {
-    return gulp.src()
+    return gulp.src('./static/js/app.js')
     .pipe(uglify())
-    .pipe(gulp.dest(''));
+    .pipe(rename(function(path) {
+        path.extname = ".min.js"
+    }))
+    .pipe(gulp.dest('./static/js'));
 });
 
 /**
  * compress css
  */
 gulp.task('csscompress', function() {
+    return gulp.src('./static/css/base.css')
+    .pipe(minifyCss({compatibility: 'ie8'}))
+    .pipe(rename(function(path) {
+        path.extname = ".min.css"
+    }))
+    .pipe(gulp.dest('./static/css'));
 });
 
 /**
@@ -97,6 +109,7 @@ gulp.task('csscompress', function() {
 gulp.task('deploy', function() {
     // 获取md5
     // 修改html内容
+    runSequence(['jscompress', 'csscompress']);
 });
 
 gulp.task('default', function () {
