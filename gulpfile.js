@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     sass = require('gulp-sass'),
     gutil = require('gulp-util'),
+    uglify = require('gulp-uglify'),
     browsersync = require('browser-sync').create(),
     webpack = require('webpack');
 
@@ -73,6 +74,29 @@ gulp.task('serve', function () {
         nodeArgs: ['--harmony'],
         script: 'server/app.js'
     });
+});
+
+/**
+ * compress js
+ */
+gulp.task('jscompress', function() {
+    return gulp.src()
+    .pipe(uglify())
+    .pipe(gulp.dest(''));
+});
+
+/**
+ * compress css
+ */
+gulp.task('csscompress', function() {
+});
+
+/**
+ * deploy
+ */
+gulp.task('deploy', function() {
+    // 获取md5
+    // 修改html内容
 });
 
 gulp.task('default', function () {
